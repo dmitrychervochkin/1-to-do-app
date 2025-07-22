@@ -1,69 +1,45 @@
-# React + TypeScript + Vite
+# 📝 1/100 — To-Do App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Минималистичное, но масштабируемое приложение для управления задачами. Реализовано в рамках челленджа **"1 из 100 проектов"**.
 
-Currently, two official plugins are available:
+Сфокусировано на продуктивности без избыточности. Стартовая точка для быстрых и чистых фронтенд-проектов.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Превью](./public/preview.png) <!-- добавь скриншот, если нужно -->
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Технологический стек
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend**: React + TypeScript
+- **Стилизация**: SCSS-модули
+- **Иконки**: [Lucide](https://lucide.dev/)
+- **Состояние**: локальный `localStorage` 
+- **Бандлер**: Vite
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ⚙️ Функциональность
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- ✅ Добавление / удаление / выполнение задач
+- ✏️ Редактирование заголовка и описания задачи inline
+- 🔍 Фильтрация: выполненные / невыполненные
+- ⏳ Анимация смены состояния чекбокса с задержкой в 500 мс
+- 📱 Адаптивный интерфейс
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Быстрый старт
+
+```bash
+# 1. Клонируй репозиторий
+git clone https://github.com/dmitrychervochkin/1-to-do-app.git
+
+# 2. Перейди в папку проекта
+cd 1-to-do-app
+
+# 3. Установи зависимости
+npm install
+
+# 4. Запусти в dev-режиме
+npm run dev
 ```
