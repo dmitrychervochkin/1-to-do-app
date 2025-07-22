@@ -108,7 +108,7 @@ export const Task = ({
                     >
                         {isDescEdit ? (
                             <input
-                                value={description}
+                                value={description || "No description"}
                                 className="task--text__input desc-input"
                                 onChange={onDescriptionChange}
                                 onBlur={() => setIsDescEdit(false)}
