@@ -37,11 +37,18 @@ export const TasksList = ({ tasks, setIsSave }: TasksListProps) => {
         );
         setIsSave((prev) => !prev);
     };
+    const onClearAllClicked = () => {
+        localStorage.setItem(
+            "tasks",
+            JSON.stringify(tasks.filter((task) => task.completed !== true))
+        );
+        setIsSave((prev) => !prev);
+    };
 
     return (
         <div className="tasks-list">
             <div className="tasks-list__incomplete">
-                <h2>Incomplete</h2>
+                <h2 className="tasks-list__header-title">Incomplete</h2>
                 <div>
                     {incompleteTasks.map(
                         ({ id, title, description, completed }) => (
@@ -61,7 +68,12 @@ export const TasksList = ({ tasks, setIsSave }: TasksListProps) => {
                 </div>
             </div>
             <div className="tasks-list__completed">
-                <h2>Completed</h2>
+                <div className="tasks-list__completed-header">
+                    <h2 className="tasks-list__header-title">Completed</h2>
+                    <div className="clear-all-btn" onClick={onClearAllClicked}>
+                        Clear all
+                    </div>
+                </div>
                 <div>
                     {completedTasks.map(
                         ({ id, title, description, completed }) => (

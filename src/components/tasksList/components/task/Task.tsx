@@ -33,8 +33,9 @@ export const Task = ({
         setTimeout(() => {
             onToggle();
             setIsAnimating(false);
-        }, 500);
+        }, 300);
     };
+
     const onDeleteClicked = () => {
         if (onDeleted) {
             onDeleted();
@@ -72,6 +73,38 @@ export const Task = ({
         setIsSave((prev) => !prev);
     };
 
+    const onSave = () => {
+        if (title === "") {
+            localStorage.setItem(
+                "tasks",
+                JSON.stringify(
+                    JSON.parse(localStorage.getItem("tasks") || "[]").map(
+                        (task: TaskI) =>
+                            task.id === id
+                                ? { ...task, title: "New task" }
+                                : task
+                    )
+                )
+            );
+        }
+        if (description === "") {
+            localStorage.setItem(
+                "tasks",
+                JSON.stringify(
+                    JSON.parse(localStorage.getItem("tasks") || "[]").map(
+                        (task: TaskI) =>
+                            task.id === id
+                                ? { ...task, description: "No description" }
+                                : task
+                    )
+                )
+            );
+        }
+        setIsTitleEdit(false);
+        setIsDescEdit(false);
+        setIsSave((prev) => !prev);
+    };
+
     return (
         <div className="task">
             {displayCompleted ? (
@@ -86,7 +119,7 @@ export const Task = ({
             <div className="task--text">
                 <div
                     className="task--text__title"
-                    style={{ color: completed ? "#8a8a8a90" : "#8a8a8a" }}
+                    style={{ color: completed ? "#8a8a8a90" : "" }}
                     onClick={() => !completed && setIsTitleEdit(true)}
                 >
                     {isTitleEdit ? (
@@ -94,11 +127,12 @@ export const Task = ({
                             value={title}
                             className="task--text__input title-input"
                             onChange={onTitleChange}
-                            onBlur={() => setIsTitleEdit(false)}
+                            placeholder="New task"
+                            onBlur={onSave}
                             autoFocus
                         />
                     ) : (
-                        title
+                        title || "New task"
                     )}
                 </div>
                 {!completed && (
@@ -108,14 +142,15 @@ export const Task = ({
                     >
                         {isDescEdit ? (
                             <input
-                                value={description || "No description"}
+                                value={description}
                                 className="task--text__input desc-input"
                                 onChange={onDescriptionChange}
-                                onBlur={() => setIsDescEdit(false)}
+                                placeholder="No description"
+                                onBlur={onSave}
                                 autoFocus
                             />
                         ) : (
-                            description
+                            description || "No description"
                         )}
                     </p>
                 )}

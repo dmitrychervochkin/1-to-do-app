@@ -6,24 +6,28 @@
 
     &--text {
         width: 100%;
+
         &__title {
+            color: var(--primal-color);
             font-size: 20px;
         }
         &__description {
-            color: #8a8a8a90;
+            height: 25px;
+            color: var(--empty-color);
             font-size: 14px;
         }
         &__input {
             border: none;
             outline: none;
             width: 100%;
-            min-height: 14px;
 
             &.desc-input {
                 font-size: 14px;
                 outline: none;
+                color: var(--empty-color);
             }
             &.title-input {
+                color: var(--primal-color);
                 font-size: 20px;
                 outline: none;
             }
@@ -32,11 +36,11 @@
 }
 
 .checkbox {
-    color: #8a8a8a;
+    color: var(--empty-color);
     transition: color 0.2s;
 
     &:hover {
         cursor: pointer;
-        color: black;
+        color: var(--primal-color);
     }
 }

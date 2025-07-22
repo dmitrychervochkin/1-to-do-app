@@ -1,5 +1,5 @@
 .header {
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid #dadada;
     padding-bottom: 15px;
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@
     }
 
     &--status {
-        color: #8a8a8a;
+        color: var(--primal-color);
         font-size: 15px;
         font-weight: 600;
     }
@@ -20,7 +20,7 @@
         right: 0;
         top: 50%;
         transform: translateY(-50%);
-        background-color: #8f54c2;
+        background-color: #424A9B;
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -28,12 +28,12 @@
         align-items: center;
         justify-content: center;
         color: white;
-        border: 2px solid #7078e2;
+        border: 2px solid #424A9B;
         transition: background-color 0.2s;
 
         &:hover {
             cursor: pointer;
-            background-color: #6971d6;
+            background-color: #525EBF;
             border: none;
         }
     }

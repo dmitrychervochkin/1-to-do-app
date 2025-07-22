@@ -22,8 +22,8 @@ export const Header = ({
                 {
                     id: Date.now(),
                     completed: false,
-                    title: "New Task",
-                    description: "No description",
+                    title: "",
+                    description: "",
                 },
             ])
         );

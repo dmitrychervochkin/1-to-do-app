@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 #root {
+    --primal-color: #575766;
+    --primal-color-hover: #57576690;
+    --empty-color: #B9B9BE;
+    --empty-color-hover: #B9B9BE90;
     font-family: "SF Pro Display", sans-serif;
-   
 }
